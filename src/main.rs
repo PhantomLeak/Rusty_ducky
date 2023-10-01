@@ -1,4 +1,4 @@
-use std::io::{Write};
+use std::io::{ Write };
 mod greeting;
 fn main() {
     greeting::ducky_greeting();
