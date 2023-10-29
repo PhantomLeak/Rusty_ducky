@@ -3,9 +3,6 @@ use rand::Rng;
 
 const RESPONSE_OPTIONS: [&'static str; 3] = ["Okay...Then what?", "I see...", "Quack!"];
 
-/*
-    Desc: Determine which function to send the user based on input
-*/
 pub fn which_ducky() {
     let mut user_decision = String::new();
     let mut ducky_decision: i32 = 0;
@@ -31,9 +28,6 @@ pub fn which_ducky() {
     }
 }
 
-/*
-    Desc: Traditional Rubber Ducky Function to help users rubber ducky debug their code
-*/
 fn rubber_ducky() {
     let mut line = String::new();
     let mut debugging_complete: bool = false;
@@ -50,17 +44,12 @@ fn rubber_ducky() {
 }
 
 /*
-    Desc: Send user input to AI bot to help with debugging the users code
+Desc:Send user input to AI bot to help with debugging the users code
 */
 fn ai_ducky() {
 
 }
 
-/*
-    Desc: check the user response and determine if a response should be returned or if the program should end
-    params: String
-    returns: Bool
-*/
 fn write_response(response: String) -> bool{
     if !response.contains("got it") &&!response.contains("figured it out") && !response.contains("thank you") {
         let index = rand::thread_rng().gen_range(0..3);
