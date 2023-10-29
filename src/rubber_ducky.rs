@@ -3,7 +3,33 @@ use rand::Rng;
 
 const RESPONSE_OPTIONS: [&'static str; 3] = ["Okay...Then what?", "I see...", "Quack!"];
 
-pub fn rubber_ducky() {
+pub fn which_ducky() {
+    let mut user_decision = String::new();
+    let mut ducky_decision: i32 = 0;
+    print!("What would you like to do? \n 1. Standard Rubber Dukcky \n 2. AI Ducky \n 3. exit \n ");
+    std::io::stdout().flush().unwrap();
+    std::io::stdin().read_line(&mut user_decision).unwrap();
+
+    if let Ok(val) = user_decision.trim().parse::<i32>() {
+        ducky_decision = val;
+    }  else {
+        println!("Please enter a valid number.");
+        which_ducky();
+    }
+
+    if ducky_decision == 1 {
+        rubber_ducky()
+    } else if ducky_decision == 2{
+        // Put AI ducky here
+    } else if ducky_decision == 3 {
+        std::process::exit(0x0100);
+    } else {
+        println!("Please enter a valid number.");
+        which_ducky();
+    }
+}
+
+fn rubber_ducky() {
     let mut line = String::new();
     let mut debugging_complete: bool = false;
     print!("What do you seem to be stuck on?: ");
